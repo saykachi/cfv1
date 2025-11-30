@@ -1,0 +1,147 @@
+/* Base Settings */
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #F5F5F7;
+}
+::-webkit-scrollbar-thumb {
+    background: #C1C1C5;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #A0A0A5;
+}
+
+/* Glassmorphism Effect */
+.glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Bento Grid Common Styles (Used across files) */
+.bento-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+}
+
+/* Dark Card Override */
+.bento-card.bg-gray-900 {
+    background-color: #1D1D1F;
+    color: white;
+}
+.bento-card.bg-black {
+    background-color: #000000;
+    color: white;
+}
+
+/* Animations */
+.fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- INTERACTIVE EFFECTS (Homepage) --- */
+
+/* 1. Zoom Logic (16:10 Fill) */
+/* Initial state: The video content block starts scaled down */
+.zoom-video-content {
+    width: 100%;
+    height: 60%; /* This leaves the "black bars" top/bottom */
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Hover state: Fills 100% height */
+.group:hover .zoom-video-content {
+    height: 100%;
+}
+
+/* 2. Camera Flash & Button Logic */
+.camera-button {
+    transition: transform 0.1s ease, background-color 0.3s;
+}
+
+/* Shutter Press Effect */
+.group:active .camera-button {
+    transform: scale(0.85);
+}
+
+/* White Flash Overlay (for Clean Screenshots) */
+.camera-flash {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.05s ease-out;
+    background: white;
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+}
+
+/* Flash triggers on Click */
+.group:active .camera-flash {
+    opacity: 0.8;
+}
+
+/* --- SUPPORT PAGE STYLES (Accordion/FAQ) --- */
+
+/* Accordion Animation */
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+
+details[open] summary ~ * { animation: sweep .3s ease-in-out; }
+@keyframes sweep {
+    0%    { opacity: 0; transform: translateY(-5px); }
+    100%  { opacity: 1; transform: translateY(0); }
+}
+
+.chevron { transition: transform 0.3s ease; }
+details[open] .chevron { transform: rotate(180deg); }
+
+/* Installation Guide Styles (Non-Bento) */
+.install-step {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 1.25rem;
+    border: 1px solid #E5E7EB;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+    transition: transform 0.2s;
+}
+.install-step:hover {
+    border-color: #D1D5DB;
+}
