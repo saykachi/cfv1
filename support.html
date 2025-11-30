@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Center — CursorFixerS</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS (Loading from css/style.css) -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        apple: { bg: '#F5F5F7', blue: '#007AFF', dark: '#1D1D1F', gray: '#86868B' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth Accordion Logic */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: sweep .3s ease-in-out; }
+        @keyframes sweep {
+            0%    { opacity: 0; transform: translateY(-5px); }
+            100%  { opacity: 1; transform: translateY(0); }
+        }
+        .chevron { transition: transform 0.3s ease; }
+        details[open] .chevron { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="bg-apple-bg text-apple-dark antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300 border-b border-gray-200/50">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group text-sm font-medium text-apple-gray hover:text-apple-blue transition-colors">
+                <i class="fa-solid fa-chevron-left text-xs"></i> <span>Back</span>
+            </a>
+            <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Help Center</span>
+        </div>
+    </nav>
+
+    <!-- Search Hero -->
+    <section class="bg-white pt-32 pb-20 px-6 border-b border-gray-200">
+        <div class="max-w-2xl mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-6 tracking-tight text-apple-dark">CursorFixerS Knowledge Base</h1>
+            <p class="text-apple-gray mb-8">Comprehensive answers to all questions regarding installation, features, and troubleshooting.</p>
+            
+            <!-- Search Bar -->
+            <div class="relative max-w-lg mx-auto shadow-sm group">
+                <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-apple-blue transition-colors"></i>
+                <input type="text" id="searchInput" placeholder="Search articles: 'Zoom', 'Unidentified Developer', 'Conflict'" class="w-full pl-12 pr-4 py-4 bg-apple-bg border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-apple-blue/50 focus:bg-white transition-all text-sm font-medium">
+            </div>
+        </div>
+    </section>
+
+    <!-- Topic Grid (for quick navigation) -->
+    <div class="max-w-5xl mx-auto px-6 -mt-10 relative z-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+        <a href="#installation" class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all">
+            <div class="w-10 h-10 bg-blue-50 text-apple-blue rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-download"></i></div>
+            <h3 class="font-bold text-apple-dark">Installation</h3>
+            <p class="text-sm text-gray-500 mt-1">Setup guides & permissions</p>
+        </a>
+
+        <a href="#features" class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all">
+            <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-keyboard"></i></div>
+            <h3 class="font-bold text-apple-dark">Hotkeys & Features</h3>
+            <p class="text-sm text-gray-500 mt-1">Shortcuts reference & deep dive</p>
+        </a>
+
+        <a href="#troubleshooting" class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all">
+            <div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-wrench"></i></div>
+            <h3 class="font-bold text-apple-dark">Troubleshooting</h3>
+            <p class="text-sm text-gray-500 mt-1">Common issues & fixes</p>
+        </a>
+
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-20 space-y-20">
+
+        <!-- 1. Installation -->
+        <section id="installation" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-8 text-apple-dark">1. Installation & Activation</h2>
+            <div class="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
+                
+                <!-- FAQ Item 1 (Unidentified Developer) -->
+                <details class="searchable-item group border-b border-gray-100">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-apple-dark">CRITICAL: How to bypass the "Unidentified Developer" message?</span>
+                        <i class="fa-solid fa-chevron-down text-gray-400 chevron text-xs"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600 leading-relaxed bg-gray-50/30 border-t border-gray-100">
+                        <p class="mb-4 font-bold text-red-600">This is the most common issue. The message appears because the application is not from the App Store. Follow these instructions carefully:</p>
+                        <div class="bg-yellow-50 border border-yellow-100 p-4 rounded-xl">
+                            <h4 class="font-bold text-yellow-800 text-xs uppercase mb-1">Step-by-Step Guide (FIRST LAUNCH ONLY):</h4>
+                            <ol class="list-decimal pl-5 space-y-2 text-yellow-900">
+                                <li>Locate the <strong>CursorFixerS.app</strong> file in Finder.</li>
+                                <li>DO NOT DOUBLE-CLICK! **Right-click** (or Control + Click) the icon.</li>
+                                <li>In the menu that appears, select **Open**.</li>
+                                <li>In the following warning window, click **Open**.</li>
+                            </ol>
+                        </div>
+                        <p class="mt-4 text-xs text-gray-400">This is a one-time process. macOS will remember the application afterwards.</p>
+                    </div>
+                </details>
+
+                <!-- FAQ Item 2 (Missing Extension) -->
+                <details class="searchable-item group border-b border-gray-100">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-apple-dark">Extension does not appear in Safari Settings</span>
+                        <i class="fa-solid fa-chevron-down text-gray-400 chevron text-xs"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                        <p class="mb-3">Possible causes and solutions:</p>
+                        <ul class="list-disc pl-5 space-y-2 mt-2">
+                            <li><strong>First Launch:</strong> Ensure you have launched the main **CursorFixerS.app** at least once.</li>
+                            <li><strong>Restart Safari:</strong> Fully quit Safari (**Cmd + Q**) and relaunch.</li>
+                            <li><strong>Check macOS:</strong> The extension requires macOS 12 (Monterey) or newer. Ensure your system is updated.</li>
+                            <li><strong>Develop Menu:</strong> If you are using beta versions of Safari, go to the **Develop** menu and ensure **"Allow Unsigned Extensions"** is enabled.</li>
+                        </ul>
+                    </div>
+                </details>
+                
+                <!-- NEW: FAQ 3 (Installation Location) -->
+                <details class="searchable-item group">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-apple-dark">Does the app need to stay in the Applications folder?</span>
+                        <i class="fa-solid fa-chevron-down text-gray-400 chevron text-xs"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                        <p>Yes, the main application file (CursorFixerS.app) must remain on your system, ideally in the **Applications** folder, to keep the Safari Extension active. If you delete the app, the extension will stop functioning until you reinstall it.</p>
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <!-- 2. Features Deep Dive -->
+        <section id="features" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-8 text-apple-dark">2. Feature Deep Dive & Hotkeys</h2>
+            
+            <div class="space-y-6">
+                
+                <!-- Hotkeys Table -->
+                <div class="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
+                    <div class="p-4 bg-gray-50 border-b border-gray-200">
+                        <h3 class="font-bold text-sm text-gray-700 pl-2">Default Shortcuts Reference</h3>
+                    </div>
+                    <table class="w-full text-sm">
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50/50">
+                                <td class="p-4 pl-6 font-medium text-apple-dark">Speed Up (+0.1x)</td>
+                                <td class="p-4 pr-6 text-right"><kbd class="px-2 py-1 bg-gray-100 border border-gray-200 rounded-md font-mono text-gray-800 shadow-sm">D</kbd></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50/50">
+                                <td class="p-4 pl-6 font-medium text-apple-dark">Slow Down (-0.1x)</td>
+                                <td class="p-4 pr-6 text-right"><kbd class="px-2 py-1 bg-gray-100 border border-gray-200 rounded-md font-mono text-gray-800 shadow-sm">S</kbd></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50/50">
+                                <td class="p-4 pl-6 font-medium text-apple-dark">Reset Speed (1.0x)</td>
+                                <td class="p-4 pr-6 text-right"><kbd class="px-2 py-1 bg-gray-100 border border-gray-200 rounded-md font-mono text-gray-800 shadow-sm">R</kbd></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50/50">
+                                <td class="p-4 pl-6 font-medium text-apple-dark">Toggle Zoom (16:10 / Default)</td>
+                                <td class="p-4 pr-6 text-right"><kbd class="px-2 py-1 bg-gray-100 border border-gray-200 rounded-md font-mono text-gray-800 shadow-sm">Z</kbd></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50/50">
+                                <td class="p-4 pl-6 font-medium text-apple-dark">Toggle Picture-in-Picture</td>
+                                <td class="p-4 pr-6 text-right"><kbd class="px-2 py-1 bg-gray-100 border border-gray-200 rounded-md font-mono text-gray-800 shadow-sm">P</kbd></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Feature 4: PiP Deep Dive -->
+                <details class="searchable-item group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-apple-dark">How does PiP Force ensure Picture-in-Picture works everywhere?</span>
+                        <i class="fa-solid fa-chevron-down text-gray-400 chevron text-xs"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                        <p class="pt-2">Some video providers try to disable the native PiP button in Safari. Our extension circumvents this by directly invoking the browser's Picture-in-Picture API (`requestPictureInPicture()`) on the active HTML5 video element. If the video element exists and is playing, we can force the PiP window to open.</p>
+                    </div>
+                </details>
+                
+                <!-- Feature 5: Screenshot Clarity -->
+                 <details class="searchable-item group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-apple-dark">How is the "Clean Screenshot" function different?</span>
+                        <i class="fa-solid fa-chevron-down text-gray-400 chevron text-xs"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                        <p class="pt-2">Our Clean Screenshot feature temporarily applies quick CSS styles to hide all overlaid UI elements (play buttons, time bars, social share icons, etc.) before the operating system captures the screen. This ensures you get a clean, high-fidelity frame of the video content only.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- 3. Troubleshooting -->
+        <section id="troubleshooting" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-8 text-apple-dark">3. Troubleshooting & Known Issues</h2>
+            
+            <div class="space-y-4">
+                <!-- Issue 1: Lagging -->
+                <div class="searchable-item bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+                    <details class="group">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-apple-dark">Video playback is lagging after installing the extension</span>
+                            <i class="fa-solid fa-chevron-down text-gray-400 chevron text-xs"></i>
+                        </summary>
+                        <div class="px-5 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                            <p class="mb-3">This is extremely rare, but may indicate a conflict. </p>
+                            <h4 class="font-semibold mb-2">Detailed Troubleshooting Steps:</h4>
+                            <ul class="list-decimal pl-5 space-y-1 text-xs">
+                                <li><strong>Isolation Test:</strong> Temporarily disable CursorFixerS and check if the lag disappears.</li>
+                                <li><strong>Conflict Check:</strong> Check for conflicts with other video-managing extensions (AdBlockers, custom video controllers). Disabling them one by one can isolate the issue.</li>
+                                <li><strong>Hardware Acceleration:</strong> Ensure Safari's hardware acceleration is enabled (usually default).</li>
+                                <li>Fully restart your Mac.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+                
+                <!-- Issue 2: Hotkeys conflict -->
+                <div class="searchable-item bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+                    <details class="group">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-apple-dark">Hotkeys are not working on certain sites (YouTube/Twitch)</span>
+                            <i class="fa-solid fa-chevron-down text-gray-400 chevron text-xs"></i>
+                        </summary>
+                        <div class="px-5 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                            <p class="mb-3">Ensure the video player is active: click your mouse inside the video frame. If keys still don't work, it's likely a hotkey conflict.</p>
+                            <p class="font-semibold mt-3">Conflict Check:</p>
+                            <p class="text-xs text-gray-500 mt-1">Go to **Safari > Settings > Extensions**. Temporarily disable all extensions except CursorFixerS. If the issue is resolved, re-enable them one by one to isolate the culprit.</p>
+                        </div>
+                    </details>
+                </div>
+                
+                <!-- Issue 3: Updates -->
+                <div class="searchable-item bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+                    <details class="group">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-gray-50 transition-colors">
+                            <span class="font-medium text-apple-dark">How to install a new version / Get updates?</span>
+                            <i class="fa-solid fa-chevron-down text-gray-400 chevron text-xs"></i>
+                        </summary>
+                        <div class="px-5 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                            <p class="mb-3">Since we distribute the app via a .zip file, you need to manually replace the application:</p>
+                            <ol class="list-decimal pl-5 space-y-1 text-xs">
+                                <li>Download the new ZIP file from our website.</li>
+                                <li>Drag the new **CursorFixerS.app** into your Applications folder, replacing the old version.</li>
+                                <li>Relaunch the new version using **Right-click > Open** (at least once).</li>
+                            </ol>
+                            <p class="mt-3 font-semibold">We are working on an automated updater for future releases!</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Contact -->
+        <section id="contact" class="scroll-mt-24">
+             <div class="max-w-xl mx-auto bg-apple-dark rounded-[32px] p-12 text-center text-white relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full blur-[100px] opacity-30 pointer-events-none"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-bold mb-4">Still have questions?</h2>
+                    <p class="text-gray-300 mb-8 max-w-lg mx-auto leading-relaxed">
+                        Contact our support team via email. We usually respond within 24 hours.
+                    </p>
+                    <a href="mailto:support@mirailab.app" class="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform">
+                        <i class="fa-regular fa-envelope"></i> Email Support
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-12">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+            <p>© 2025 MiraiLab. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="index.html" class="hover:text-gray-600">Home</a>
+                <a href="privacy.html" class="hover:text-gray-600">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const searchableItems = document.querySelectorAll('.searchable-item'); 
+            const contentSections = document.querySelectorAll('#installation, #features, #troubleshooting');
+
+            if (searchInput) {
+                searchInput.addEventListener('input', filterFAQ);
+            }
+
+            function filterFAQ() {
+                const filter = searchInput.value.toLowerCase();
+                
+                // 1. Filter individual items
+                searchableItems.forEach(item => {
+                    // Check if the item's text content (title + body) matches the filter
+                    const textContent = item.textContent.toLowerCase();
+                    const isMatch = textContent.includes(filter);
+
+                    item.style.display = isMatch ? '' : 'none';
+                });
+                
+                // 2. Filter main parent sections (Hide section if all children are hidden)
+                contentSections.forEach(section => {
+                    const itemsInSection = section.querySelectorAll('.searchable-item');
+                    let sectionVisible = false;
+
+                    // If the filter is empty, show everything
+                    if (filter === '') {
+                        sectionVisible = true;
+                    } else {
+                        // Check visibility based on the filter
+                        itemsInSection.forEach(item => {
+                            // Check if the item is NOT set to 'none' (i.e., it matched the filter)
+                            if (item.style.display !== 'none') {
+                                sectionVisible = true;
+                            }
+                        });
+                    }
+                    
+                    // Apply display state to the section
+                    section.style.display = sectionVisible ? '' : 'none';
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

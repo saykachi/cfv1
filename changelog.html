@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Release Notes - CursorFixerS</title>
+    
+    <meta name="description" content="Release notes and history for CursorFixerS. See what's new and what's changed.">
+    <meta property="og:title" content="CursorFixerS Changelog">
+    <meta property="og:image" content="img/og-image.jpg">
+    <meta name="theme-color" content="#F5F5F7">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        apple: { bg: '#F5F5F7', blue: '#007AFF', dark: '#1D1D1F', gray: '#86868B' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-apple-bg text-apple-dark antialiased selection:bg-blue-100 changelog-page-bg">
+
+    <nav id="main-nav" class="fixed w-full z-50 top-0 left-0">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span id="nav-logo-text" class="font-bold tracking-tight text-apple-dark group-hover:opacity-80">
+                    <i class="fa-solid fa-bolt text-apple-blue mr-1"></i> CursorFixerS
+                </span>
+            </a>
+            <a href="https://mirailab.app" target="_blank" class="nav-link-item text-sm font-medium text-apple-gray hover:text-apple-blue">
+                MiraiLab ↗
+            </a>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-16 px-6 text-center">
+        <div class="fade-in-up">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-apple-dark mb-4">
+                Release Notes
+            </h1>
+            <p class="text-lg text-apple-gray max-w-xl mx-auto">
+                The evolution of CursorFixerS. Tracking every fix and improvement.
+            </p>
+        </div>
+    </section>
+
+    <section class="changelog-container px-6">
+        
+        <div class="release-block fade-in-up delay-100">
+            <div class="release-meta">
+                <div class="meta-version text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">v1.1</div>
+                <div class="meta-date">In Development</div>
+                <div class="meta-badge badge-upcoming">Next Update</div>
+            </div>
+
+            <div class="release-card border-purple-200">
+                <div class="release-title flex items-center gap-2">
+                    <i class="fa-solid fa-screwdriver-wrench text-purple-500"></i>
+                    Stability & Performance
+                </div>
+                
+                <p class="text-sm text-gray-500 mb-6 leading-relaxed">
+                    This update focuses entirely on polishing the experience, fixing Alpha bugs, and reducing resource usage. No new features, just a smoother ride.
+                </p>
+
+                <div class="change-group group-imp">
+                     <div class="group-title text-green-600"><i class="fa-solid fa-arrow-up-right-dots"></i> Core Improvements</div>
+                     <ul class="change-list-ul">
+                        <li class="change-li"><strong>Script Injection:</strong> Optimized the way scripts load on YouTube to prevent video stuttering on start.</li>
+                        <li class="change-li"><strong>Battery Life:</strong> Reduced CPU usage by ~20% during background checks.</li>
+                        <li class="change-li"><strong>Animations:</strong> Made UI transitions in the settings menu 60fps smooth.</li>
+                     </ul>
+                </div>
+
+                <div class="change-group group-fix">
+                    <div class="group-title text-red-500"><i class="fa-solid fa-bug"></i> Bug Fixes</div>
+                    <ul class="change-list-ul">
+                       <li class="change-li">Fixed an issue where "Ghost Mode" cursor wouldn't reappear immediately upon mouse movement.</li>
+                       <li class="change-li">Resolved a conflict with Safari's native Picture-in-Picture button.</li>
+                       <li class="change-li">Fixed Zoom 16:10 cropping subtitles on some Netflix shows.</li>
+                    </ul>
+               </div>
+            </div>
+        </div>
+
+        <div class="release-block fade-in-up delay-200">
+            <div class="release-meta">
+                <div class="meta-version">v1.0</div>
+                <div class="meta-date">Nov 26, 2025</div>
+                <div class="meta-badge badge-latest">Current</div>
+            </div>
+
+            <div class="release-card highlight">
+                <div class="release-title">
+                    Public Alpha Release
+                    <span class="ml-2 text-xs bg-orange-100 text-orange-600 px-2 py-0.5 rounded border border-orange-200 align-middle">Alpha</span>
+                </div>
+
+                <div class="change-group group-new">
+                    <div class="group-title text-blue-600"><i class="fa-solid fa-bolt"></i> Key Features</div>
+                    <ul class="change-list-ul">
+                        <li class="change-li"><strong>Speed Master:</strong> Precise playback speed control (0.5x - 4.0x) with keyboard shortcuts (S/D).</li>
+                        <li class="change-li"><strong>Ghost Mode:</strong> Cursor automatically vanishes after 3 seconds of inactivity on fullscreen video.</li>
+                        <li class="change-li"><strong>PiP Force:</strong> Enable Picture-in-Picture on sites that block it.</li>
+                        <li class="change-li"><strong>Zoom 16:10:</strong> Fill your MacBook screen, removing black bars on 21:9 content.</li>
+                    </ul>
+                </div>
+
+                <div class="card-footer">
+                    <a href="/downloads/CursorFixerS_v1.0.zip" download class="mini-download-btn">
+                        <i class="fa-solid fa-download"></i> Download v1.0
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="release-block fade-in-up delay-300">
+            <div class="release-meta">
+                <div class="meta-version text-gray-400">v0.9</div>
+                <div class="meta-date">Oct 21, 2025</div>
+                <div class="meta-badge badge-beta">Beta</div>
+            </div>
+
+            <div class="release-card bg-gray-50/30">
+                <div class="release-title text-gray-500">Private Beta</div>
+
+                <div class="change-group group-fix">
+                    <div class="group-title text-gray-500"><i class="fa-solid fa-flask"></i> Initial Testing</div>
+                    <ul class="change-list-ul">
+                        <li class="change-li">Core functionality testing with focus group.</li>
+                        <li class="change-li">Fixed critical memory leak in Safari background process.</li>
+                        <li class="change-li">Resolved an issue where the settings menu wouldn't open on Twitch.tv.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="bg-[#F5F5F7] py-12 border-t border-gray-200/50">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <span class="text-sm text-apple-gray block">© 2025 MiraiLab. All rights reserved.</span>
+                <span class="text-[11px] text-gray-400 mt-2 inline-flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded-md border border-gray-200">
+                    Made with <i class="fa-solid fa-heart text-red-400 text-[9px]"></i> in Ukraine 
+                    <svg class="w-4 h-3 rounded-[2px] shadow-sm border border-black/10" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+                        <g fill-rule="evenodd" stroke-width="1pt">
+                            <path fill="#ffd700" d="M0 0h640v480H0z"/>
+                            <path fill="#0057b8" d="M0 0h640v240H0z"/>
+                        </g>
+                    </svg>
+                </span>
+            </div>
+            <div class="flex gap-6">
+                <a href="changelog.html" class="text-sm text-apple-blue font-semibold transition-colors">Changelog</a>
+                <a href="support.html" class="text-sm text-apple-gray hover:text-apple-blue transition-colors">Support</a>
+                <a href="privacypolicy.html" class="text-sm text-apple-gray hover:text-apple-blue transition-colors">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll script
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
