@@ -326,3 +326,60 @@ body {
     mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
     pointer-events: none;
 }
+
+/* Virtual Keyboard Styles */
+.virtual-key {
+    background: #F5F5F7;
+    border: 1px solid #D1D1D6;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 0 #E5E5EA;
+    user-select: none;
+    position: relative;
+    top: 0;
+}
+
+.virtual-key:active, .virtual-key.active-press {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 #E5E5EA;
+    background: #FFFFFF;
+    border-color: #007AFF;
+}
+
+.virtual-key kbd {
+    display: block;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1D1D1F;
+    margin-bottom: 4px;
+}
+
+.virtual-key .key-label {
+    display: block;
+    font-size: 10px;
+    color: #86868B;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.virtual-key.active-press kbd { color: #007AFF; }
+
+/* Скрытие курсора для Ghost Mode */
+.cursor-hidden {
+    cursor: none !important;
+}
+.cursor-hidden * {
+    cursor: none !important;
+}
+/* Добавь в style.css */
+video {
+    /* Аппаратное ускорение */
+    transform: translateZ(0); 
+    backface-visibility: hidden;
+    perspective: 1000px;
+}

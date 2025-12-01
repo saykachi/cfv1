@@ -282,26 +282,102 @@
         </div>
     </section>
 
-    <section class="hotkeys-section fade-in-up">
-        <div class="text-center max-w-2xl mx-auto">
-            <h2 class="text-3xl font-bold text-apple-dark">Master the Control.</h2>
-            <p class="text-apple-gray mt-2">Lightning-fast navigation without touching your mouse.</p>
+    <section id="demo-section" class="py-24 px-6 relative overflow-hidden bg-white">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-50/50 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+        
+        <div class="flex-1 space-y-8 z-10">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[11px] font-bold uppercase tracking-wide mb-4">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Live Playground
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-apple-dark tracking-tight leading-tight">
+                    Try it before <br> you download.
+                </h2>
+                <p class="text-lg text-apple-gray mt-4 max-w-md leading-relaxed">
+                    Focus on the video player on the right. <br>
+                    Use your keyboard to control the experience natively.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-3 max-w-[300px]">
+                <div class="virtual-key group" data-key="s" onclick="triggerDemoAction('s')">
+                    <kbd>S</kbd>
+                    <span class="key-label">Slow</span>
+                </div>
+                <div class="virtual-key group" data-key="r" onclick="triggerDemoAction('r')">
+                    <kbd>R</kbd>
+                    <span class="key-label">Reset</span>
+                </div>
+                <div class="virtual-key group" data-key="d" onclick="triggerDemoAction('d')">
+                    <kbd>D</kbd>
+                    <span class="key-label">Fast</span>
+                </div>
+                <div class="virtual-key col-span-3 group" data-key="g" onclick="triggerDemoAction('g')">
+                    <kbd class="w-full">G</kbd>
+                    <span class="key-label flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-ghost"></i> Toggle Ghost Mode
+                    </span>
+                </div>
+            </div>
+
+            <p class="text-xs text-gray-400 font-medium">
+                <i class="fa-solid fa-circle-info mr-1"></i> Works with keyboard or click
+            </p>
         </div>
-        <div class="keys-grid">
-            <div class="key-group"><div class="kbd-key accent-blue">S</div><div class="key-desc">Slow Down</div></div>
-            <div class="key-group"><div class="kbd-key accent-blue">D</div><div class="key-desc">Speed Up</div></div>
-            <div class="key-group"><div class="kbd-key accent-orange">R</div><div class="key-desc">Reset 1.0x</div></div>
-            <div class="hidden md:block w-px h-16 bg-gray-200 mx-4"></div>
-            <div class="key-group"><div class="kbd-key accent-purple">G</div><div class="key-desc">Ghost Mode</div></div>
-            <div class="key-group"><div class="kbd-key accent-purple">P</div><div class="key-desc">PiP View</div></div>
-            <div class="key-group"><div class="kbd-key accent-purple">Z</div><div class="key-desc">Zoom Fill</div></div>
+
+        <div class="flex-1 w-full perspective-1000 relative">
+            <div class="absolute -inset-4 bg-gradient-to-tr from-blue-500/20 to-purple-600/20 rounded-[2rem] blur-xl opacity-70"></div>
+            
+            <div id="demo-player-container" class="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-black aspect-video group cursor-default transition-all duration-300 transform hover:scale-[1.01]">
+                
+                <video id="demo-video" 
+                    class="w-full h-full object-cover" 
+                    loop 
+                    muted 
+                    autoplay 
+                    playsinline 
+                    preload="auto"
+                    poster="https://images.unsplash.com/photo-1496304841270-2cb48cb562bb?q=80&w=2070&auto=format&fit=crop">
+                    
+                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+                </video>
+
+                <div class="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-black/60 to-transparent flex items-center px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                    <span class="text-white/80 text-xs font-medium tracking-wide">youtube.com</span>
+                </div>
+
+                <div id="play-overlay" class="absolute inset-0 flex items-center justify-center bg-black/20 z-10 cursor-pointer" onclick="startDemoVideo()">
+                    <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 hover:scale-110 transition-transform duration-300 group-hover:bg-white/30">
+                        <i class="fa-solid fa-play text-white text-2xl ml-1"></i>
+                    </div>
+                </div>
+
+                <div id="hud-overlay" class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 transition-all duration-200 transform scale-90 z-30">
+                    <div class="w-40 h-40 bg-gray-100/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center justify-center text-white">
+                        <i id="hud-icon" class="fa-solid fa-gauge-high text-4xl mb-4 text-white/90 drop-shadow-md"></i>
+                        <span id="hud-text" class="text-xl font-bold font-mono tracking-wider drop-shadow-sm">1.0x</span>
+                        <div class="w-24 h-1.5 bg-gray-700/50 rounded-full mt-3 overflow-hidden">
+                            <div id="hud-bar" class="h-full bg-white transition-all duration-300 w-1/2"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ghost-indicator" class="absolute top-4 right-4 bg-purple-500/20 backdrop-blur-md border border-purple-500/30 text-purple-100 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider opacity-0 transition-all duration-500 transform translate-y-2 z-20">
+                    <i class="fa-solid fa-ghost mr-1"></i> Ghost Active
+                </div>
+            </div>
+
+            </div>
         </div>
-        <div class="text-center mt-10">
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full text-xs text-gray-500 shadow-sm">
-                <i class="fa-regular fa-keyboard"></i> Fully customizable in settings
-            </span>
-        </div>
-    </section>
+    </div>
+</section>
 
     <section class="py-12 px-6">
         <div class="max-w-3xl mx-auto fade-in-up">
@@ -416,6 +492,155 @@
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) { nav.classList.add('nav-scrolled'); } else { nav.classList.remove('nav-scrolled'); }
         });
-    </script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // Получаем элементы и проверяем их наличие
+        const video = document.getElementById('demo-video');
+        const hudOverlay = document.getElementById('hud-overlay');
+        const hudText = document.getElementById('hud-text');
+        const hudIcon = document.getElementById('hud-icon');
+        const hudBar = document.getElementById('hud-bar');
+        const ghostIndicator = document.getElementById('ghost-indicator');
+        const playerContainer = document.getElementById('demo-player-container');
+        
+        let currentSpeed = 1.0;
+        let isGhostMode = false;
+        let hudTimeout;
+
+        // Если видео или элементы не найдены, выводим ошибку в консоль
+        if (!video || !hudOverlay) {
+            console.error("Critical Error: Elements not found. Check IDs in HTML.");
+            return;
+        }
+
+        // Делаем функцию доступной глобально (для onclick в HTML)
+        window.triggerDemoAction = function(key) {
+            key = key.toLowerCase();
+            
+            // 1. Визуальный эффект нажатия кнопки
+            const btn = document.querySelector(`.virtual-key[data-key="${key}"]`);
+            if(btn) {
+                btn.classList.add('active-press');
+                setTimeout(() => btn.classList.remove('active-press'), 150);
+            }
+
+            // 2. Логика действий
+            try {
+                // Если видео на паузе, запускаем его принудительно
+                if (video.paused && key !== 'g') {
+                    video.play().catch(e => console.log("Autoplay prevented:", e));
+                }
+
+                if (key === 'd') {
+                    // Ускорение
+                    if (currentSpeed < 3.0) currentSpeed += 0.25;
+                    updateVideoSpeed('speed');
+                } 
+                else if (key === 's') {
+                    // Замедление
+                    if (currentSpeed > 0.25) currentSpeed -= 0.25;
+                    updateVideoSpeed('speed');
+                } 
+                else if (key === 'r') {
+                    // Сброс
+                    currentSpeed = 1.0;
+                    updateVideoSpeed('reset');
+                } 
+                else if (key === 'g') {
+                    // Призрак
+                    toggleGhostMode();
+                }
+            } catch (error) {
+                console.error("Error in triggerDemoAction:", error);
+            }
+        };
+        // Обновление скорости и показ HUD
+        function updateVideoSpeed(type) {
+            // --- ГЛАВНЫЙ ТРЮК ---
+            // Мы показываем пользователю, что скорость растет (до 3.0x),
+            // но физически не разгоняем видео больше чем 1.6x, чтобы избежать лагов.
+            // Это стандартная практика для демо-стендов.
+            const realSpeedCap = 1.6; 
+            video.playbackRate = Math.min(currentSpeed, realSpeedCap);
+            
+            // В консоль пишем правду (для отладки), а юзеру показываем красивую цифру
+            // console.log("UI Speed:", currentSpeed, "Real Speed:", video.playbackRate); 
+
+            // Обновляем текст HUD (Показываем желаемую скорость, например 2.25x)
+            if (hudText) hudText.innerText = currentSpeed.toFixed(2) + 'x';
+            
+            // Обновляем полоску прогресса (исходя из желаемой скорости)
+            if (hudBar) {
+                const percentage = ((currentSpeed - 0.25) / (3.0 - 0.25)) * 100;
+                hudBar.style.width = `${Math.max(5, percentage)}%`;
+            }
+
+            // Обновляем иконку
+            if (hudIcon) {
+                if (type === 'reset') {
+                    hudIcon.className = "fa-solid fa-rotate-left text-4xl mb-4 text-white/90";
+                } else {
+                    if (currentSpeed > 1) hudIcon.className = "fa-solid fa-forward text-4xl mb-4 text-white/90";
+                    else if (currentSpeed < 1) hudIcon.className = "fa-solid fa-backward text-4xl mb-4 text-white/90";
+                    else hudIcon.className = "fa-solid fa-play text-4xl mb-4 text-white/90";
+                }
+            }
+
+            // Показываем анимацию
+            clearTimeout(hudTimeout);
+            hudOverlay.classList.remove('opacity-0', 'scale-90');
+            hudOverlay.classList.add('opacity-100', 'scale-100');
+
+            hudTimeout = setTimeout(() => {
+                hudOverlay.classList.remove('opacity-100', 'scale-100');
+                hudOverlay.classList.add('opacity-0', 'scale-90');
+            }, 800);
+        }
+
+        // Логика Ghost Mode
+        function toggleGhostMode() {
+            isGhostMode = !isGhostMode;
+            
+            if (isGhostMode) {
+                playerContainer.classList.add('cursor-hidden');
+                ghostIndicator.classList.remove('opacity-0', 'translate-y-2');
+            } else {
+                playerContainer.classList.remove('cursor-hidden');
+                ghostIndicator.classList.add('opacity-0', 'translate-y-2');
+            }
+        }
+
+        // Слушатель клавиатуры
+        document.addEventListener('keydown', (e) => {
+            const rect = document.getElementById('demo-section').getBoundingClientRect();
+            // Срабатывает только если секция видна на экране
+            const isInView = (rect.top < window.innerHeight && rect.bottom >= 0);
+
+            if (!isInView) return;
+
+            if (['s', 'd', 'r', 'g'].includes(e.key.toLowerCase())) {
+                window.triggerDemoAction(e.key);
+            }
+        });
+    });
+
+        // Add this logic to your script
+    const playOverlay = document.getElementById('play-overlay');
+    const vid = document.getElementById('demo-video');
+
+    // Функция ручного запуска
+    window.startDemoVideo = function() {
+        vid.play().then(() => {
+            playOverlay.style.opacity = '0';
+            setTimeout(() => playOverlay.style.display = 'none', 300);
+        }).catch(err => console.error("Play failed", err));
+    };
+
+    // Если видео запустилось само (autoplay сработал)
+    vid.addEventListener('play', () => {
+        playOverlay.style.opacity = '0';
+        setTimeout(() => playOverlay.style.display = 'none', 300);
+    });
+</script>
 </body>
 </html>
