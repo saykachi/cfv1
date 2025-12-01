@@ -4,35 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
     <title>Release Notes - CursorFixerS</title>
-    
-    <meta name="description" content="Release notes and history for CursorFixerS. See what's new and what's changed.">
+    <meta name="description" content="Release notes and history for CursorFixerS.">
     <meta property="og:title" content="CursorFixerS Changelog">
     <meta property="og:image" content="img/og-image.jpg">
     <meta name="theme-color" content="#F5F5F7">
-
     <link rel="icon" type="image/png" href="img/favicon.png">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        apple: { bg: '#F5F5F7', blue: '#007AFF', dark: '#1D1D1F', gray: '#86868B' }
-                    }
-                }
-            }
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { apple: { bg: '#F5F5F7', blue: '#007AFF', dark: '#1D1D1F', gray: '#86868B' } } } }
         }
     </script>
 </head>
 <body class="bg-apple-bg text-apple-dark antialiased selection:bg-blue-100 changelog-page-bg">
+
+    <div class="bg-grid"></div>
 
     <nav id="main-nav" class="fixed w-full z-50 top-0 left-0">
         <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
@@ -41,25 +31,18 @@
                     <i class="fa-solid fa-bolt text-apple-blue mr-1"></i> CursorFixerS
                 </span>
             </a>
-            <a href="https://mirailab.app" target="_blank" class="nav-link-item text-sm font-medium text-apple-gray hover:text-apple-blue">
-                MiraiLab ↗
-            </a>
+            <a href="https://mirailab.app" target="_blank" class="nav-link-item text-sm font-medium text-apple-gray hover:text-apple-blue">MiraiLab ↗</a>
         </div>
     </nav>
 
     <section class="pt-40 pb-16 px-6 text-center">
         <div class="fade-in-up">
-            <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-apple-dark mb-4">
-                Release Notes
-            </h1>
-            <p class="text-lg text-apple-gray max-w-xl mx-auto">
-                The evolution of CursorFixerS. Tracking every fix and improvement.
-            </p>
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-apple-dark mb-4">Release Notes</h1>
+            <p class="text-lg text-apple-gray max-w-xl mx-auto">The evolution of CursorFixerS. Tracking every fix and improvement.</p>
         </div>
     </section>
 
     <section class="changelog-container px-6">
-        
         <div class="release-block fade-in-up delay-100">
             <div class="release-meta">
                 <div class="meta-version text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">v1.1</div>
@@ -148,7 +131,6 @@
                 </div>
             </div>
         </div>
-
     </section>
 
     <footer class="bg-[#F5F5F7] py-12 border-t border-gray-200/50">
@@ -172,17 +154,9 @@
             </div>
         </div>
     </footer>
-
     <script>
-        // Header scroll script
         const nav = document.getElementById('main-nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                nav.classList.add('nav-scrolled');
-            } else {
-                nav.classList.remove('nav-scrolled');
-            }
-        });
+        window.addEventListener('scroll', () => { if (window.scrollY > 20) { nav.classList.add('nav-scrolled'); } else { nav.classList.remove('nav-scrolled'); } });
     </script>
 </body>
 </html>
