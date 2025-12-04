@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <title>About — MiraiLab</title>
-    <meta name="description" content="We build software that feels native, fast, and human.">
+    <title>About MiraiLab & CursorFixerS</title>
+    <meta name="description" content="Learn about the philosophy, technology, and team behind CursorFixerS.">
     <meta name="theme-color" content="#F5F5F7">
-
     <link rel="icon" type="image/png" href="img/favicon.png">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/style.css">
 
     <script>
@@ -31,10 +28,10 @@
 </head>
 <body class="bg-apple-bg text-apple-dark antialiased selection:bg-blue-100">
 
-    <div class="noise-overlay"></div>
-
     <div class="bg-grid"></div>
-    <nav id="main-nav">
+    <div id="mouse-spotlight" class="fixed inset-0 z-0 pointer-events-none transition-opacity duration-700 opacity-0"></div>
+
+    <nav id="main-nav" class="fixed w-full z-50 top-0 left-0">
         <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-2 group">
                 <span id="nav-logo-text" class="font-bold tracking-tight text-apple-dark group-hover:opacity-80">
@@ -42,8 +39,8 @@
                 </span>
             </a>
             <div class="flex items-center gap-6">
-                <a href="about.html" class="nav-link-item text-apple-dark font-bold">About</a>
-                <div class="w-px h-4 bg-gray-300 hidden md:block"></div>
+                <a href="changelog.html" class="nav-link-item text-apple-gray hover:text-apple-blue transition-colors">Changelog</a>
+                <a href="about.html" class="nav-link-item text-apple-gray hover:text-apple-blue transition-colors">About</a>
                 <a href="https://mirailab.app" target="_blank" class="nav-link-item text-apple-gray hover:text-apple-blue transition-colors">
                     MiraiLab ↗
                 </a>
@@ -51,191 +48,143 @@
         </div>
     </nav>
 
-    <section class="pt-48 pb-24 px-6 max-w-4xl mx-auto text-center">
+    <section class="pt-40 pb-16 px-6 text-center max-w-5xl mx-auto">
         <div class="fade-in-up">
-            <span class="text-[10px] font-bold tracking-widest text-apple-blue uppercase mb-6 block bg-blue-50 w-fit mx-auto px-3 py-1 rounded-full border border-blue-100">
-                The Studio
-            </span>
-            <h1 class="about-hero-title mb-8">
-                Software that feels <br> like magic.
+            <h1 class="about-hero-title mb-6">
+                Built for the <br>
+                Modern macOS User.
             </h1>
-            <p class="text-xl md:text-2xl text-gray-500 font-normal leading-relaxed max-w-2xl mx-auto">
-                MiraiLab is an indie digital studio. We craft native, lightweight, and privacy-focused utilities for the Apple ecosystem.
+            <p class="text-xl text-apple-gray max-w-3xl mx-auto mb-10 leading-relaxed">
+                We are MiraiLab, a small team dedicated to creating native and efficient macOS extensions that improve your daily workflow without compromising speed or privacy.
             </p>
         </div>
     </section>
-
-    <section class="tech-marquee fade-in-up delay-100">
-        <div class="marquee-container">
-            <div class="marquee-content">
-                <div class="tech-item"><i class="fa-brands fa-swift text-orange-500"></i> Swift 6</div>
-                <div class="tech-item"><i class="fa-brands fa-apple text-gray-800"></i> SwiftUI</div>
-                <div class="tech-item"><i class="fa-solid fa-microchip text-purple-500"></i> Metal API</div>
-                <div class="tech-item"><i class="fa-solid fa-box-archive text-blue-500"></i> AppKit</div>
-                <div class="tech-item"><i class="fa-solid fa-shield-halved text-green-500"></i> Sandboxed</div>
-                <div class="tech-item"><i class="fa-solid fa-code text-blue-600"></i> Xcode</div>
+    
+    <section class="tech-marquee overflow-hidden fade-in-up delay-100">
+        <div class="marquee-container w-max" style="animation: scroll 40s linear infinite;">
+            <div class="marquee-content gap-12" style="padding-right: 48px;">
+                <div class="tech-item"><i class="fa-brands fa-apple"></i> Native Swift</div>
+                <div class="tech-item"><i class="fa-solid fa-code"></i> Safari WebKit</div>
+                <div class="tech-item"><i class="fa-solid fa-bolt"></i> Zero Dependency</div>
+                <div class="tech-item"><i class="fa-solid fa-lock"></i> Privacy Focused</div>
+                <div class="tech-item"><i class="fa-brands fa-js"></i> TypeScript / JS</div>
+                <div class="tech-item"><i class="fa-solid fa-feather-pointed"></i> Extremely Lightweight</div>
+                <div class="tech-item"><i class="fa-solid fa-terminal"></i> Command Line Tools</div>
+                <div class="tech-item"><i class="fa-solid fa-apple-whole"></i> macOS 12+</div>
             </div>
-            <div class="marquee-content">
-                <div class="tech-item"><i class="fa-brands fa-swift text-orange-500"></i> Swift 6</div>
-                <div class="tech-item"><i class="fa-brands fa-apple text-gray-800"></i> SwiftUI</div>
-                <div class="tech-item"><i class="fa-solid fa-microchip text-purple-500"></i> Metal API</div>
-                <div class="tech-item"><i class="fa-solid fa-box-archive text-blue-500"></i> AppKit</div>
-                <div class="tech-item"><i class="fa-solid fa-shield-halved text-green-600"></i> Sandboxed</div>
-                <div class="tech-item"><i class="fa-solid fa-code text-blue-600"></i> Xcode</div>
+            <div class="marquee-content gap-12" style="padding-right: 48px;">
+                <div class="tech-item"><i class="fa-brands fa-apple"></i> Native Swift</div>
+                <div class="tech-item"><i class="fa-solid fa-code"></i> Safari WebKit</div>
+                <div class="tech-item"><i class="fa-solid fa-bolt"></i> Zero Dependency</div>
+                <div class="tech-item"><i class="fa-solid fa-lock"></i> Privacy Focused</div>
+                <div class="tech-item"><i class="fa-brands fa-js"></i> TypeScript / JS</div>
+                <div class="tech-item"><i class="fa-solid fa-feather-pointed"></i> Extremely Lightweight</div>
+                <div class="tech-item"><i class="fa-solid fa-terminal"></i> Command Line Tools</div>
+                <div class="tech-item"><i class="fa-solid fa-apple-whole"></i> macOS 12+</div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            
-            <div class="fade-in-up delay-200">
-                <h2 class="text-3xl font-bold text-apple-dark mb-6">Born from necessity.</h2>
-                <div class="space-y-5 text-lg text-gray-500 leading-relaxed font-light">
-                    <p>
-                        Watching movies on a MacBook is an incredible visual experience, but it's often ruined by black bars and a persistent cursor.
-                    </p>
-                    <p class="text-gray-900 font-medium border-l-2 border-apple-blue pl-4">
-                        "Why isn't there a native switch for this?"
-                    </p>
-                    <p>
-                        We looked at existing solutions. They were bulky, built on Electron (slow), or tracked user data. We wanted something that felt like it came pre-installed on macOS.
-                    </p>
-                    <p>
-                        So we built <strong class="text-apple-blue">CursorFixerS</strong>. Pure Swift. Zero bloat.
-                    </p>
-                </div>
-            </div>
-
-            <div class="fade-in-up delay-300">
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                        <div class="ml-auto text-xs text-gray-600 font-mono">main.swift</div>
-                    </div>
-                    <div class="terminal-body" id="code-container">
-                        </div>
-                </div>
-            </div>
-
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16 fade-in-up delay-200">
+            <h2 class="text-3xl font-bold text-apple-dark">Our Zero Philosophy.</h2>
+            <p class="text-apple-gray mt-3 max-w-lg mx-auto">What sets us apart is what we choose to remove.</p>
         </div>
-    </section>
-
-    <section class="pb-24 px-6 max-w-5xl mx-auto">
-        <div class="text-center mb-12 fade-in-up">
-            <h2 class="text-2xl font-bold text-apple-dark">The "Zero" Philosophy</h2>
-        </div>
-        <div class="zero-grid fade-in-up delay-100">
+        
+        <div class="zero-grid fade-in-up delay-300">
             <div class="zero-card">
                 <div class="zero-val">0</div>
-                <div class="zero-label">Trackers</div>
+                <div class="zero-label">AD TRACKERS</div>
+                <p class="text-sm text-gray-500 mt-2">We don't include any external tracking libraries or analytics scripts. Your activity is your own.</p>
             </div>
             <div class="zero-card">
-                <div class="zero-val text-blue-600">100<span class="text-2xl">%</span></div>
-                <div class="zero-label">Native Code</div>
+                <div class="zero-val">0</div>
+                <div class="zero-label">MEMORY LEAKS</div>
+                <p class="text-sm text-gray-500 mt-2">Built in native Swift, the core app process minimizes memory usage, ensuring stability and battery life.</p>
             </div>
             <div class="zero-card">
-                <div class="zero-val">~5<span class="text-2xl">MB</span></div>
-                <div class="zero-label">Tiny Size</div>
+                <div class="zero-val">0</div>
+                <div class="zero-label">EXTERNAL DATA</div>
+                <p class="text-sm text-gray-500 mt-2">All settings, hotkeys, and preferences are stored locally on your Mac's storage API, never on our servers.</p>
+            </div>
+            <div class="zero-card">
+                <div class="zero-val">0</div>
+                <div class="zero-label">COMPROMISE</div>
+                <p class="text-sm text-gray-500 mt-2">We code to the highest standard of macOS Human Interface Guidelines for a truly native feel.</p>
             </div>
         </div>
     </section>
 
-        <footer class="relative bg-[#F5F5F7] pt-32 overflow-hidden border-t border-gray-200/50">
-    
-    <div class="absolute bottom-[-2vw] left-0 w-full text-center pointer-events-none select-none z-0 leading-none">
-        <h1 class="giant-text font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-200 to-transparent tracking-tighter opacity-60">
-            CURSORFIXERS
-        </h1>
-    </div>
-
-    <div class="relative z-10 max-w-6xl mx-auto px-6 pb-12 flex flex-col md:flex-row justify-between items-end gap-10">
+    <section class="py-20 px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-12 fade-in-up">
+            <h2 class="text-3xl font-bold text-apple-dark">Code Quality.</h2>
+            <p class="text-apple-gray mt-3 max-w-lg mx-auto">Native code written with performance in mind.</p>
+        </div>
         
-        <div class="flex flex-col gap-6">
-            <div class="flex items-center gap-2 text-apple-dark font-bold text-xl tracking-tight">
-                <i class="fa-solid fa-bolt text-apple-blue"></i> CursorFixerS
+        <div class="terminal-window fade-in-up delay-100">
+            <div class="terminal-header">
+                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span class="text-xs text-white/50 ml-2">~/CursorFixerS/src/extension.ts</span>
             </div>
+            <div class="terminal-body">
+                <code class="code-line"><span class="com">// YouTube Terminator: Mutes and skips ads instantly using MutationObserver.</span></code>
+                <code class="code-line"><span class="kw">const</span> <span class="ty">videoElement</span> = document.<span class="fn">querySelector</span>(<span class="str">'video'</span>);</code>
+                <code class="code-line"><span class="kw">if</span> (<span class="ty">videoElement</span>.<span class="fn">classList</span>.<span class="fn">contains</span>(<span class="str">'ad-showing'</span>)) {</code>
+                <code class="code-line">    &nbsp;&nbsp;<span class="ty">videoElement</span>.muted = <span class="kw">true</span>;</code>
+                <code class="code-line">    &nbsp;&nbsp;<span class="kw">return</span> <span class="fn">requestAnimationFrame</span>(<span class="fn">skipAd</span>);</code>
+                <code class="code-line">}</code>
+                <code class="code-line"></code>
+                <code class="code-line"><span class="com">// Zero-Lag Architecture: Ensures cursor tracking is non-blocking.</span></code>
+                <code class="code-line"><span class="kw">function</span> <span class="fn">handleMouseMove</span>(<span class="kw">event</span>) {</code>
+                <code class="code-line">    &nbsp;&nbsp;<span class="fn">updateCursorState</span>({ passive: <span class="kw">true</span> });</code>
+                <code class="code-line">}</code>
+                <code class="code-line">document.<span class="fn">addEventListener</span>(<span class="str">'mousemove'</span>, <span class="fn">handleMouseMove</span>, { passive: <span class="kw">true</span> });<span class="cursor"></span></code>
+            </div>
+        </div>
+    </section>
+
+    <footer class="relative bg-[#F5F5F7] pt-32 overflow-hidden border-t border-gray-200/50">
+    
+        <div class="absolute bottom-[-2vw] left-0 w-full text-center pointer-events-none select-none z-0 leading-none">
+            <h1 class="giant-text font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-200 to-transparent tracking-tighter opacity-60">
+                CURSORFIXERS
+            </h1>
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 pb-12 flex flex-col md:flex-row justify-between items-end gap-10">
             
-            <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm font-medium text-gray-500 relative z-50">
-                <a href="changelog.html" class="hover:text-apple-blue transition-colors duration-300">Changelog</a>
-                <a href="privacy.html" class="hover:text-apple-blue transition-colors duration-300">Privacy Policy</a>
-                <a href="support.html" class="hover:text-apple-blue transition-colors duration-300">Support</a>
+            <div class="flex flex-col gap-6">
+                <div class="flex items-center gap-2 text-apple-dark font-bold text-xl tracking-tight">
+                    <i class="fa-solid fa-bolt text-apple-blue"></i> CursorFixerS
+                </div>
+                
+                <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm font-medium text-gray-500 relative z-50">
+                    <a href="changelog.html" class="hover:text-apple-blue transition-colors duration-300">Changelog</a>
+                    <a href="privacy.html" class="hover:text-apple-blue transition-colors duration-300">Privacy Policy</a>
+                    <a href="support.html" class="hover:text-apple-blue transition-colors duration-300">Support</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-end gap-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-full shadow-sm hover:scale-105 transition-transform cursor-default">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    <span class="text-[10px] font-bold text-gray-600 tracking-wide uppercase">Designed in Ukraine 🇺🇦</span>
+                </div>
+                
+                <p class="text-xs text-gray-400 font-medium">
+                    © 2025 MiraiLab Inc. All rights reserved.
+                </p>
             </div>
         </div>
 
-        <div class="flex flex-col items-end gap-4">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-full shadow-sm hover:scale-105 transition-transform cursor-default">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                </span>
-                <span class="text-[10px] font-bold text-gray-600 tracking-wide uppercase">Designed in Ukraine 🇺🇦</span>
-            </div>
-            
-            <p class="text-xs text-gray-400 font-medium">
-                © 2025 MiraiLab Inc. All rights reserved.
-            </p>
-        </div>
-    </div>
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#F5F5F7] to-transparent z-1 pointer-events-none"></div>
 
-    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#F5F5F7] to-transparent z-1 pointer-events-none"></div>
+    </footer>
 
-</footer>
-
-    <script>
-        const codeText = [
-            { text: "<span class='kw'>import</span> SafariServices", delay: 50 },
-            { text: "<span class='kw'>import</span> <span class='ty'>AppKit</span>", delay: 50 },
-            { text: "", delay: 100 },
-            { text: "<span class='com'>// Native & Invisible.</span>", delay: 50 },
-            { text: "<span class='kw'>final class</span> <span class='ty'>CursorFixer</span> {", delay: 100 },
-            { text: "&nbsp;&nbsp;<span class='kw'>let</span> isTracking = <span class='kw'>false</span>", delay: 50 },
-            { text: "&nbsp;&nbsp;<span class='kw'>let</span> isBloated = <span class='kw'>false</span>", delay: 50 },
-            { text: "", delay: 50 },
-            { text: "&nbsp;&nbsp;<span class='kw'>func</span> <span class='fn'>optimize</span>() {", delay: 50 },
-            { text: "&nbsp;&nbsp;&nbsp;&nbsp;<span class='fn'>print</span>(<span class='str'>\"Battery safe.\"</span>)", delay: 50 },
-            { text: "&nbsp;&nbsp;}", delay: 50 },
-            { text: "}", delay: 50 }
-        ];
-
-        const container = document.getElementById('code-container');
-        let lineIndex = 0;
-
-        function typeLine() {
-            if (lineIndex < codeText.length) {
-                const line = codeText[lineIndex];
-                const div = document.createElement('div');
-                div.className = 'code-line';
-                div.innerHTML = line.text;
-                container.appendChild(div);
-                container.scrollTop = container.scrollHeight;
-                lineIndex++;
-                setTimeout(typeLine, line.delay);
-            } else {
-                const cursorLine = document.createElement('div');
-                cursorLine.className = 'code-line';
-                cursorLine.innerHTML = "<span class='cursor'></span>";
-                container.appendChild(cursorLine);
-            }
-        }
-
-        // Start animation when visible
-        const observer = new IntersectionObserver((entries) => {
-            if(entries[0].isIntersecting && lineIndex === 0) {
-                typeLine();
-                observer.disconnect();
-            }
-        }, { threshold: 0.5 });
-        observer.observe(document.querySelector('.terminal-window'));
-
-        // Header Scroll
-        const nav = document.getElementById('main-nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) nav.classList.add('nav-scrolled');
-            else nav.classList.remove('nav-scrolled');
-        });
-    </script>
 </body>
 </html>
