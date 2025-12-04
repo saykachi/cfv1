@@ -1,4 +1,4 @@
-/* css/style.css */
+/* css/style.css - FINAL WHITE THEME v1.1 */
 
 /* --- БАЗОВЫЕ НАСТРОЙКИ --- */
 body {
@@ -10,15 +10,15 @@ body {
     color: #1D1D1F;
 }
 
-/* --- ТОПОГРАФИЧЕСКАЯ СЕТКА (НОВОЕ) --- */
+/* --- ТОПОГРАФИЧЕСКАЯ СЕТКА --- */
 .bg-grid {
     background-size: 40px 40px;
     background-image: linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
                       linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1; /* На заднем плане */
-    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%); /* Мягкое исчезновение к краям */
+    z-index: -1; 
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
     pointer-events: none;
 }
 
@@ -30,7 +30,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 999; /* Самый высокий приоритет */
+    z-index: 999;
     backdrop-filter: blur(5px); 
     -webkit-backdrop-filter: blur(5px);
     background: rgba(255, 255, 255, 0.01);
@@ -78,7 +78,7 @@ body {
 .platform-logo {
     font-size: 19px; color: #98989D; transition: all 0.4s ease; cursor: default;
     display: flex; align-items: center; gap: 12px; font-weight: 600; user-select: none;
-    will-change: transform; /* Оптимизация для плавности */
+    will-change: transform;
 }
 .platform-logo i { font-size: 24px; }
 .platform-logo:hover { transform: scale(1.1); color: #1D1D1F; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
@@ -151,17 +151,26 @@ body {
 @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 122, 255, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 122, 255, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 122, 255, 0); } }
 @keyframes shake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
 
-/* --- BENTO CARDS (FIXED ANIMATIONS) --- */
+/* --- BENTO CARDS --- */
 .bento-card {
     background: white; border-radius: 24px; padding: 24px;
     border: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    will-change: transform, box-shadow; /* Исправление анимации */
+    will-change: transform, box-shadow;
 }
 .bento-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.08); }
 .camera-flash { position: absolute; inset: 0; background: white; opacity: 0; pointer-events: none; z-index: 50; transition: opacity 0.1s; }
 .bento-card:active .camera-flash { opacity: 0.8; transition: opacity 0s; }
+
+/* Custom class for the Red AdBlock Card in White Theme */
+.bento-card-red {
+    background: #FEF2F2 !important; /* light red/rose */
+    border: 1px solid #FECACA !important; /* light red border */
+}
+.bento-card-red:hover {
+    box-shadow: 0 20px 40px -5px rgba(239, 68, 68, 0.15) !important;
+}
 
 /* --- UPDATE CARD & TIMER --- */
 .update-card { background: white; border-radius: 24px; overflow: hidden; position: relative; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: transform 0.3s ease; }
@@ -176,12 +185,39 @@ body {
 .progress-container { height: 4px; width: 100%; background: #E5E5EA; border-radius: 2px; overflow: hidden; margin-top: 10px; }
 .progress-bar { height: 100%; width: 85%; background: linear-gradient(90deg, #007AFF, #5856D6); border-radius: 2px; }
 
-/* --- INSTALL STEPS (RESTORED TO GOOD DESIGN) --- */
+/* --- INSTALL STEPS --- */
 .install-step { display: flex; gap: 20px; align-items: flex-start; padding: 24px; border-radius: 20px; transition: background 0.3s; margin-bottom: 12px; border: 1px solid transparent; }
 .install-step:hover { background: #FFFFFF; border-color: rgba(0,0,0,0.05); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
 .step-number { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #E5E5E7; color: #86868B; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; flex-shrink: 0; transition: all 0.3s; position: relative; z-index: 2;}
 .install-step:hover .step-number { border-color: #007AFF; color: #007AFF; }
 .code-badge { background: #EBEBF0; padding: 2px 8px; border-radius: 6px; font-family: 'Menlo', monospace; font-size: 0.9em; color: #1D1D1F; border: 1px solid rgba(0,0,0,0.05); }
+
+/* Измененный фон для 2 шага (highlight) */
+.install-step.highlighted { 
+    background: rgba(0, 122, 255, 0.1) !important; 
+    border-color: rgba(0, 122, 255, 0.3) !important;
+}
+
+/* Линия для 1 и 2 шага (пунктир) */
+.install-step:not(:last-child) .step-number::after {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: calc(100% + 34px);
+    background-image: linear-gradient(to bottom, #E5E5E7 50%, transparent 50%);
+    background-size: 2px 8px;
+    background-repeat: repeat-y;
+    z-index: 1;
+}
+
+/* Когда наводим на шаг, линия тоже синеет */
+.install-step:hover:not(:last-child) .step-number::after,
+.install-step.highlighted .step-number::after {
+     background-image: linear-gradient(to bottom, #007AFF 50%, transparent 50%);
+}
 
 /* --- CHANGELOG PAGE STYLES --- */
 .changelog-page-bg { background: radial-gradient(circle at 50% 0%, rgba(0,122,255,0.05) 0%, rgba(255,255,255,0) 50%); }
@@ -210,162 +246,6 @@ body {
 .card-footer { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.05); }
 .mini-download-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #007AFF; background: rgba(0,122,255,0.08); padding: 8px 16px; border-radius: 12px; transition: all 0.2s; }
 .mini-download-btn:hover { background: #007AFF; color: white; }
-
-/* =========================================
-   ABOUT PAGE SPECIFIC STYLES
-   ========================================= */
-
-/* 1. About Hero Typography */
-.about-hero-title {
-    font-size: clamp(48px, 6vw, 80px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    background: linear-gradient(135deg, #1D1D1F 0%, #434344 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* 2. Tech Stack Marquee (Specific for About) */
-.tech-marquee {
-    padding: 24px 0;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(0,0,0,0.05);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    overflow: hidden;
-    position: relative;
-}
-.tech-item {
-    font-size: 14px;
-    font-weight: 600;
-    color: #424245;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 12px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 8px;
-    border: 1px solid rgba(0,0,0,0.03);
-}
-
-/* 3. Terminal Window (Code Animation) */
-.terminal-window {
-    background: #1C1C1E;
-    border-radius: 16px;
-    box-shadow: 0 20px 50px -10px rgba(0,0,0,0.3);
-    overflow: hidden;
-    font-family: 'SF Mono', 'Menlo', monospace;
-    font-size: 13px;
-    line-height: 1.6;
-    color: #A9A9A9;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-.terminal-header {
-    background: linear-gradient(to bottom, #3A3A3C, #2C2C2E);
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-bottom: 1px solid #111;
-}
-.terminal-body {
-    padding: 24px;
-    min-height: 280px;
-}
-.code-line { min-height: 20px; display: block; }
-/* Syntax Highlighting */
-.kw { color: #FF7AB2; font-weight: bold; } /* Keyword */
-.fn { color: #66D9EF; } /* Function */
-.str { color: #E6DB74; } /* String */
-.com { color: #75715E; font-style: italic; } /* Comment */
-.ty { color: #A6E22E; } /* Type */
-.cursor { 
-    display: inline-block; width: 8px; height: 15px; 
-    background: #007AFF; vertical-align: middle; 
-    animation: blink 1s infinite; 
-}
-@keyframes blink { 50% { opacity: 0; } }
-
-/* 4. Zero Philosophy Cards */
-.zero-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-.zero-card {
-    background: white;
-    border-radius: 24px;
-    padding: 30px 20px;
-    text-align: center;
-    border: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-    transition: transform 0.3s ease;
-}
-.zero-card:hover { transform: translateY(-5px); }
-.zero-val {
-    font-size: 48px; font-weight: 800; color: #1D1D1F;
-    line-height: 1; margin-bottom: 8px;
-    letter-spacing: -0.02em;
-}
-.zero-label {
-    font-size: 12px; font-weight: 700; color: #86868B;
-    text-transform: uppercase; letter-spacing: 0.05em;
-}
-
-/* --- НОВАЯ ЖИВАЯ СЕТКА (MOIRÉ EFFECT) --- */
-
-/* Общие стили для слоев сетки */
-.grid-layer {
-    position: absolute;
-    /* Делаем слои намного больше экрана, чтобы при движении не было видно краев */
-    left: -50%; top: -50%;
-    width: 200%; height: 200%;
-    
-    /* Рисуем саму сетку градиентами */
-    background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-    
-    /* Оптимизация производительности для плавности */
-    will-change: transform;
-}
-
-/* Слой 1: Базовый */
-.layer-1 {
-    background-size: 40px 40px; /* Размер клетки 40px */
-    opacity: 0.7;
-    /* Очень медленное движение по диагонали */
-    animation: grid-drift-1 60s linear infinite;
-}
-
-/* Слой 2: Интерференционный (создает эффект "муара") */
-.layer-2 {
-    background-size: 36px 36px; /* Чуть другой размер клетки для создания узора */
-    opacity: 0.5;
-    /* Движение в другую сторону + легкое вращение */
-    animation: grid-drift-2 45s linear infinite reverse;
-}
-
-/* Маска, чтобы сетка исчезала к краям экрана, используя цвет твоего фона #F5F5F7 */
-.bg-radial-fade {
-    background: radial-gradient(circle at center, transparent 30%, #F5F5F7 90%);
-}
-
-/* --- АНИМАЦИИ --- */
-
-/* Анимация 1: Плавный дрейф вниз и вправо */
-@keyframes grid-drift-1 {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(40px, 40px); } /* Двигаем на размер одной клетки */
-}
-
-/* Анимация 2: Дрейф вверх и влево + едва заметное вращение */
-/* Вращение заставляет линии "переливаться" */
-@keyframes grid-drift-2 {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    100% { transform: translate(-36px, -36px) rotate(1deg); }
-}
 
 /* Virtual Keyboard Styles */
 .virtual-key {
@@ -452,26 +332,6 @@ video {
         transparent 40%
     );
     mix-blend-mode: screen; /* Режим наложения для свечения */
-}
-
-/* Линия для 1 и 2 шага */
-.install-step:not(:last-child) .step-number::after {
-    content: '';
-    position: absolute;
-    top: 36px; /* Начинаем сразу под кружком */
-    left: 50%; /* По центру */
-    transform: translateX(-50%);
-    width: 2px;
-    height: calc(100% + 34px); /* Высота до следующего кружка (нужно подбирать под отступы) */
-    background-image: linear-gradient(to bottom, #E5E5E7 50%, transparent 50%); /* Пунктир */
-    background-size: 2px 8px; /* Размер штриха */
-    background-repeat: repeat-y;
-    z-index: 1;
-}
-
-/* Когда наводим на шаг, линия тоже синеет */
-.install-step:hover:not(:last-child) .step-number::after {
-     background-image: linear-gradient(to bottom, #007AFF 50%, transparent 50%);
 }
 
 /* Настройка перспективы для 3D */
